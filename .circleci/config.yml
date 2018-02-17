@@ -19,5 +19,7 @@ jobs:
         command: aws deploy create-deployment --application-name prtest --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name staging --description "My demo deployment" --s3-location bucket=deploy.billing.bucket,bundleType=zip,key=revision/staging/prtest.zip
 workflows:
   version: 2
-  - build
-  - deploy
+  build-deploy:
+    jobs:
+      - build
+      - deploy
