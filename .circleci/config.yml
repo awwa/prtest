@@ -12,11 +12,11 @@ jobs:
     working_directory: /tmp/prtest
     steps:
       - run:
-        name: Deploy to S3
-        command: aws deploy push --application-name prtest --s3-location s3://deploy.billing.bucket/revision/staging/prtest.zip --source .
+          name: Deploy to S3
+          command: aws deploy push --application-name prtest --s3-location s3://deploy.billing.bucket/revision/staging/prtest.zip --source .
       - run:
-        name: Create deployment on CodeDeoploy
-        command: aws deploy create-deployment --application-name prtest --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name staging --description "My demo deployment" --s3-location bucket=deploy.billing.bucket,bundleType=zip,key=revision/staging/prtest.zip
+          name: Create deployment on CodeDeoploy
+          command: aws deploy create-deployment --application-name prtest --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name staging --description "My demo deployment" --s3-location bucket=deploy.billing.bucket,bundleType=zip,key=revision/staging/prtest.zip
 workflows:
   version: 2
   build-deploy:
