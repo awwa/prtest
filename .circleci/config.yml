@@ -2,21 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/3.6.4-node-browsers
     working_directory: ~/working_directory
     steps:
       - checkout
       - run: echo "A first hello"
       - run:
-          name: Install python
-          command: |
-            sudo apt-get -y -qq update
-            sudo apt-get -y -qq install python3.4-dev
-      - run:
-          name: Install pip
-          command: |
-            curl -O https://bootstrap.pypa.io/get-pip.py
-            sudo python get-pip.py
+          name: Update apt-get
+          command: sudo apt-get -y -qq update
       - run:
           name: Install awscli
           command: pip install awscli --upgrade --user
@@ -44,3 +37,9 @@ jobs:
             # sudo apt-get -y -qq install python3.4-dev
             # sudo curl -O https://bootstrap.pypa.io/get-pip.py
             # sudo python3.4 get-pip.py --user
+            # sudo apt-get -y -qq install python3.4-dev
+      # - run:
+      #     name: Install pip
+      #     command: |
+      #       curl -O https://bootstrap.pypa.io/get-pip.py
+      #       sudo python get-pip.py
