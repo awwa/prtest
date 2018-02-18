@@ -7,6 +7,12 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
+  deploy:
+    docker:
+      - image: circleci/python:3.6.4-node-browsers
+    working_directory: ~/working_directory
+    steps:
+      - checkout
       - run:
           name: Update apt-get
           command: sudo apt-get -y -qq update
@@ -26,12 +32,6 @@ jobs:
       - run:
           name: Create deployment on CodeDeoploy
           command: aws deploy create-deployment --application-name prtest --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name staging --description "My demo deployment" --s3-location bucket=deploy.billing.bucket,bundleType=zip,key=revision/staging/prtest.zip
-  deploy:
-    docker:
-      - image: circleci/python:3.6.4-node-browsers
-    working_directory: ~/working_directory
-    steps:
-      - checkout
 
 workflows:
   version: 2
