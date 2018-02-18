@@ -8,12 +8,16 @@ jobs:
       - checkout
       - run: echo "A first hello"
       - run:
-          name: Install dependencies
+          name: Install python
           command: |
             sudo apt-get -y -qq update
             sudo apt-get -y -qq install python3.4-dev
-            curl -O https://bootstrap.pypa.io/get-pip.py
-            pip install awscli --upgrade --user
+      - run:
+          name: Install pip
+          command: curl -O https://bootstrap.pypa.io/get-pip.py
+      - run:
+          name: Install awscli
+          command: pip install awscli --upgrade --user
       - run:
           name: Deploy to S3
           command: aws deploy push --application-name prtest --s3-location s3://deploy.billing.bucket/revision/staging/prtest.zip --source .
