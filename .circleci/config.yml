@@ -44,15 +44,3 @@ workflows:
           filters:
             branches:
               only: master
-# apt-get -y -qq update
-# apt-get -y -qq install awscli
-# pip install awscli --upgrade --user
-            # sudo apt-get -y -qq install python3.4-dev
-            # sudo curl -O https://bootstrap.pypa.io/get-pip.py
-            # sudo python3.4 get-pip.py --user
-            # sudo apt-get -y -qq install python3.4-dev
-      # - run:
-      #     name: Install pip
-      #     command: |
-      #       curl -O https://bootstrap.pypa.io/get-pip.py
-      #       sudo python get-pip.py
