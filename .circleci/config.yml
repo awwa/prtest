@@ -11,6 +11,7 @@ jobs:
           name: Install dependencies
           command: |
             sudo apt-get -y -qq update
+            apt-get -y -qq install python3.4-dev
             pip install awscli --upgrade --user
       - run:
           name: Deploy to S3
