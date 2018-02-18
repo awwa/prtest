@@ -11,10 +11,10 @@ jobs:
   deploy:
     docker:
       - image: circleci/ruby:2.4.1
+    working_directory: ~/working_directory
     steps:
       - run:
           name: Install dependencies
-          working_directory: ~/working_directory/prtest
           command: sudo apt-get -y -qq install awscli
       - run:
           name: Deploy to S3
