@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/3.6.4-node-browsers
+      - image: circleci/python:3.6.4-node-browsers
     working_directory: ~/working_directory
     steps:
       - checkout
