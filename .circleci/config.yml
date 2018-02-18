@@ -12,7 +12,7 @@ jobs:
           command: sudo apt-get -y -qq update
       - run:
           name: Install awscli
-          command: pip install awscli --upgrade --user
+          command: sudo pip install awscli --upgrade
       - run:
           name: Deploy to S3
           command: aws deploy push --application-name prtest --s3-location s3://deploy.billing.bucket/revision/staging/prtest.zip --source .
