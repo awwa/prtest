@@ -9,7 +9,7 @@ jobs:
       - run: echo "A first hello"
       - run:
           name: Install dependencies
-          command: sudo apt-get -y -qq install awscli
+          command: sudo apt-get -y -qq update & apt-get -y -qq install awscli
       - run:
           name: Deploy to S3
           command: aws deploy push --application-name prtest --s3-location s3://deploy.billing.bucket/revision/staging/prtest.zip --source .
