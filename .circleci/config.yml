@@ -7,12 +7,6 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
-
-  deploy:
-    docker:
-      - image: circleci/ruby:2.4.1
-    working_directory: ~/working_directory
-    steps:
       - run:
           name: Install dependencies
           command: sudo apt-get -y -qq install awscli
