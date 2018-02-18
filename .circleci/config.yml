@@ -41,9 +41,9 @@ workflows:
       - deploy:
           requires:
             - build
-#         filters:
-#           branches:
-#             only: master
+          filters:
+            branches:
+              only: master
 # apt-get -y -qq update
 # apt-get -y -qq install awscli
 # pip install awscli --upgrade --user
