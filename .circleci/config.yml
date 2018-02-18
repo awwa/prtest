@@ -11,10 +11,7 @@ jobs:
           name: Install dependencies
           command: |
             sudo apt-get -y -qq update
-            sudo apt-get -y -qq install python3.4-dev
-            sudo curl -O https://bootstrap.pypa.io/get-pip.py
-            sudo python3.4 get-pip.py --user
-            which pip
+            pip install awscli --upgrade --user
       - run:
           name: Deploy to S3
           command: aws deploy push --application-name prtest --s3-location s3://deploy.billing.bucket/revision/staging/prtest.zip --source .
@@ -36,3 +33,6 @@ jobs:
 # apt-get -y -qq update
 # apt-get -y -qq install awscli
 # pip install awscli --upgrade --user
+            # sudo apt-get -y -qq install python3.4-dev
+            # sudo curl -O https://bootstrap.pypa.io/get-pip.py
+            # sudo python3.4 get-pip.py --user
