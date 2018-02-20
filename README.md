@@ -10,5 +10,4 @@ aaaaaa
 
 Babasub is modifying this line now.
 
-edited by wataru
-
+edited by wataru2
